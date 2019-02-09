@@ -1,0 +1,42 @@
+{
+  "name": "vemsy-cli",
+  "version": "0.1.0",
+  "description": "command line for vemsy",
+  "main": "index.js",
+  "bin": {
+    "vemsy": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js",
+    "template",
+    "src"
+  ],
+  "keywords": [
+    "vemsy",
+    "cli"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "author": "Quentin <jadok> Jadeau",
+  "license": "MIT",
+  "dependencies": {
+    "@commitlint/cli": "^7.5.0",
+    "@commitlint/config-conventional": "^7.5.0",
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "execa": "^1.0.0",
+    "fs-extra": "^7.0.1",
+    "get-stream": "^4.1.0",
+    "inquire": "^0.4.8",
+    "path": "^0.12.7",
+    "progress": "^2.0.3",
+    "recursive-copy": "^2.0.10",
+    "vemsy": "^0.2.0"
+  }
+}
