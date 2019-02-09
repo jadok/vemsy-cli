@@ -1,26 +1,25 @@
 const copy = require('recursive-copy')
 const path = require('path')
-const fs = require('fs')
 
-const fodlerName = 'template'
+const fodlerName = './template'
 
-const copyFolder = (project, cmd) => new Promise((resolve, reject) => {
+const copyFolder = (project, options) => new Promise((resolve, reject) => {
 
-  const options = {
+  const copyOptions = {
     overwrite: true,
     expand: true,
     dot: true,
     junk: true
   };
-  
-  copy(fodlerName, path.join(process.cwd(), project), options)
+  console.log('Initiating folder')
+  copy(path.join(__dirname, '..', fodlerName), path.join(process.cwd(), project), copyOptions)
     .on(copy.events.COPY_FILE_START, (copyOperation) => {
-      if (cmd.verbose) {
+      if (options.verbose) {
         console.info('Copying file ' + copyOperation.src + '...')
       }
     })
     .on(copy.events.COPY_FILE_COMPLETE, function(copyOperation) {
-      if (cmd.verbose) {
+      if (options.verbose) {
         console.info('Copied to ' + copyOperation.dest)
       }
     })
@@ -30,7 +29,7 @@ const copyFolder = (project, cmd) => new Promise((resolve, reject) => {
     })
     .then((results) => {
       console.info(results.length + ' file(s) copied')
-      resolve()
+      resolve({ project, options })
     })
     .catch((error) => {
       console.error('Copy failed: ' + error);
