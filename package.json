@@ -18,6 +18,10 @@
     "vemsy",
     "cli"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadok/vemsy-cli.git"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
