@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - core-api
+    # Restart https-portal on failure or after Docker host restart.
+    restart: always
+    environment:
+      # Forward wordpress.example.com to the WordPress container.
+      # You can set up multiple domains at once.
+      DOMAINS: 'core-api.local -> http://core-api:1337'
+      STAGE: local
+      # Using staging server by default, for there is a rate limit on production.
+      # Uncomment to use Let's Encrypt production server.
+      # STAGE: production
+
+  core-api:
+    build: .
+    image: core-api
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 1337:1337
+      - 9229:9229
+    environment:
+      NODE_ENV: development
