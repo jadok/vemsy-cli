@@ -1,5 +1,5 @@
 const { type } = require('vemsy')
 
-const TemplateDefault = require('../template/index')
+const TemplateDefault = new type.Template('default')
 
 module.exports = new type.Page('/', TemplateDefault)
