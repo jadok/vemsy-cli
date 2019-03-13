@@ -15,7 +15,9 @@ const instances = [
   setup.logger,
 
   setup.themeInit,
-  setup.themePages
+  setup.themePages,
+  setup.themeStyle,
+  setup.themeAssetsCompile
 ].map((setupClass) => new setupClass())
 
 // add middlewares to express
@@ -23,7 +25,7 @@ instances.push(new setup.expressMiddleware([
   middleware.routingFile,
   middleware.data,
   middleware.markdown,
-  middleware.routingTheme,
+  // middleware.routingTheme,
   middleware.renderTheme
 ]))
 

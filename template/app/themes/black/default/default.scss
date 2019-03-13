@@ -1,0 +1,13 @@
+$breakpoint-tablet: 'only screen and (min-with: 768px)';
+$breakpoint-desktop: 'only screen and (min-with: 1260px)';
+
+body {
+  background-color: #333333;
+  color: #eeeeee;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media #{$breakpoint-desktop} {
+    width: 80vw;
+  }
+}
