@@ -3,8 +3,12 @@
   <head>
     <title>Welcome to vemsy</title>
     <!-- <link rel="stylesheet" href="http://jasonm23.github.io/markdown-css-themes/markdown2.css"> -->
+    {% for my_style in styles %}
+      <link href="{{my_style.file}}" rel="stylesheet" type="text/css">
+    {% endfor %}
   </head>
   <body>
     {{ markdown }}
+    <i>{{ styles | json_encode() }}</i>
   </body>
 </html>
