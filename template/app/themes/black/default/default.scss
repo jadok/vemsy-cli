@@ -1,5 +1,5 @@
-$breakpoint-tablet: 'only screen and (min-with: 768px)';
-$breakpoint-desktop: 'only screen and (min-with: 1260px)';
+$breakpoint-tablet: 'only screen and (min-width: 768px)';
+$breakpoint-desktop: 'only screen and (min-width: 1260px)';
 
 body {
   background-color: #333333;
