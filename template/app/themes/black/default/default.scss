@@ -1,3 +1,4 @@
+$breakpoint-mobile: 'only screen and (max-width: 767px)';
 $breakpoint-tablet: 'only screen and (min-width: 768px)';
 $breakpoint-desktop: 'only screen and (min-width: 1260px)';
 
@@ -7,7 +8,12 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  @media #{$breakpoint-desktop} {
+  @media #{$breakpoint-desktop}, #{$breakpoint-tablet} {
     width: 80vw;
+  }
+
+  @media #{$breakpoint-mobile} {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

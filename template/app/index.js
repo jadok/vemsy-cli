@@ -14,6 +14,8 @@ const instances = [
   // add logs to express
   setup.logger,
 
+  setup.markdown,
+
   setup.themeInit,
   setup.themePages,
   setup.themeStyle,
